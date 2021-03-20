@@ -27,5 +27,22 @@ public class Task {
 	public void setComplete(boolean isComplete) {
 		this.isComplete = isComplete;
 	}
+	
+	
+	public void setAssignTask(String assignee) {
+		this.assignee = assignee;
+	}
+	
+	public void setTaskDuration(int duration) {
+		this.duration = duration;
+	}
+	
+	public String getAssignTask(String assignee) {
+		return assignee;
+	}
+	
+	public int getTaskDuration() {
+		return duration;
+	}
 
 }
