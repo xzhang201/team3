@@ -71,4 +71,25 @@ public class ToDoListTest extends TestCase{
 		Collection<Task> tasks = list.getCompletedTasks();
 		assertEquals(2, tasks.size());
 	}
+	
+	
+	@Test
+	public void testGetAssignee() {
+		assertNotNull(list);
+		task.setAssignTask("Ramya");
+		task2.setAssignTask("Xin");
+		
+		assertNotNull(task.getAssignTask(item1));
+		assertNotNull(task.getAssignTask(item2));		
+	}
+	
+	@Test
+	public void testGetDuration() {
+		assertNotNull(list);
+		task.setTaskDuration(30);
+		task2.setTaskDuration(60);
+
+		assertNotNull(task.getTaskDuration());
+		assertNotNull(task2.getTaskDuration());
+	}
 }
