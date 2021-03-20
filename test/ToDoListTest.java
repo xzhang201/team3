@@ -79,8 +79,8 @@ public class ToDoListTest extends TestCase{
 		task.setAssignTask("Ramya");
 		task2.setAssignTask("Xin");
 		
-		assertNotNull(task.getAssignTask(item1));
-		assertNotNull(task.getAssignTask(item2));		
+		assertNotNull(task.getAssignTask());
+		assertNotNull(task.getAssignTask());		
 	}
 	
 	@Test
