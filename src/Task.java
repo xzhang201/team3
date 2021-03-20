@@ -2,6 +2,8 @@
 public class Task {
 	private String description = null;
 	private boolean isComplete = false;
+	private String assignee;
+	private int duration;
 	
 	
 	public Task(String description) {
