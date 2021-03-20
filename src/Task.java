@@ -39,7 +39,7 @@ public class Task {
 		this.duration = duration;
 	}
 	
-	public String getAssignTask(String assignee) {
+	public String getAssignTask() {
 		return assignee;
 	}
 	
