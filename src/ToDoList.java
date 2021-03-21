@@ -24,12 +24,12 @@ private HashMap<String, Task> tasks = new HashMap<String, Task>();
 		return tasks.values();
 
 	}
-	public Collection<Task> getCompletedTasks() {
-		Collection<Task> completedTasks = new ArrayList<Task> ();
+	public Collection<Task> getUncompletedTasks() {
+		Collection<Task> uncompletedTasks = new ArrayList<Task> ();
 		Collection<Task> allTasks = new ArrayList<Task> ();
 		allTasks = getAllTasks();
 		for (Task task: allTasks) 
-			if (task.isComplete() == true) completedTasks.add(task);
-		return completedTasks;
+			if (!task.isComplete()) uncompletedTasks.add(task);
+		return uncompletedTasks;
 	}
 }
