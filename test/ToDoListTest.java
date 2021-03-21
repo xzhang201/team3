@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -14,8 +13,6 @@ public class ToDoListTest extends TestCase{
 	private String item2;
 	private Task task;
 	private Task task2;
-	private Task task3;
-	private Task task4;
 	private String item3;
 	private String item4;
 	
@@ -32,19 +29,18 @@ public class ToDoListTest extends TestCase{
 	    
 	    task = new Task(item1);
 	    task2 = new Task(item2);
-	    task3 = new Task(item3);
-	    task4 = new Task(item4);
-	    
-	    
-	     
-	    
-	    
+	    new Task(item3);
+	    new Task(item4);
 	}
+	
 	@After
 	 public void tearDown() throws Exception{
 		list = null;
 	    item1 = null;
 	    item2 = null;
+	    item3 = null;
+	    item4 = null;
+	   
 	    task = null;
 	    task2 = null;
 	}
@@ -55,11 +51,9 @@ public class ToDoListTest extends TestCase{
 		assertEquals(0, list.getAllTasks().size());	
 		list.addTask(task);		
 		assertEquals(1, list.getAllTasks().size());	
-		assertTrue(0 < list.getAllTasks().size());	
-        
-        
-		
-		}
+		assertTrue(0 < list.getAllTasks().size());		
+	}
+	
 	@Test
 	public void testDuplicateTask(){
 		assertNotSame(item1 , item2);
@@ -114,8 +108,8 @@ public class ToDoListTest extends TestCase{
 	@Test
 	public void testGetDuration() {
 		assertNotNull(list);
-		task.setTaskDuration(30);
-		task2.setTaskDuration(60);
+		task.setTaskDuration(30);//In minutes
+		task2.setTaskDuration(60);//In minutes
 
 		assertNotNull(task.getTaskDuration());
 		assertNotNull(task2.getTaskDuration());
