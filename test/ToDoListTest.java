@@ -14,6 +14,10 @@ public class ToDoListTest extends TestCase{
 	private String item2;
 	private Task task;
 	private Task task2;
+	private Task task3;
+	private Task task4;
+	private String item3;
+	private String item4;
 	
 	public ToDoListTest() {
 		super();
@@ -23,8 +27,18 @@ public class ToDoListTest extends TestCase{
 	    list = new ToDoList();
 	    item1 = "desc 1";
 	    item2 = "desc 2";
+	    item3 = "Ramya";
+	    item4 = "Ramya";	
+	    
 	    task = new Task(item1);
 	    task2 = new Task(item2);
+	    task3 = new Task(item3);
+	    task4 = new Task(item4);
+	    
+	    
+	     
+	    
+	    
 	}
 	@After
 	 public void tearDown() throws Exception{
@@ -42,8 +56,16 @@ public class ToDoListTest extends TestCase{
 		list.addTask(task);		
 		assertEquals(1, list.getAllTasks().size());	
 		assertTrue(0 < list.getAllTasks().size());	
+        
+        
 		
+		}
+	@Test
+	public void testDuplicateTask(){
+		assertNotSame(item1 , item2);
+		assertSame(item3 , item4);
 	}
+	
 	@Test
 	public void testgetStatus() {
 		assertNotNull(list);
