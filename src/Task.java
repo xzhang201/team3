@@ -1,9 +1,14 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class Task {
 	private String description = null;
 	private boolean isComplete = false;
 	private String assignee;
 	private int duration;
+	private HashSet<String> resources = new HashSet<String>();
 	
 	
 	public Task(String description) {
@@ -23,6 +28,7 @@ public class Task {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public boolean isComplete() {
 		return isComplete;
 	}
@@ -45,6 +51,16 @@ public class Task {
 	
 	public int getTaskDuration() {
 		return duration;
+	}
+	
+	public HashSet<String> getResources() {
+		return resources;
+	}
+	public void setResources(HashSet<String> resources) {
+		this.resources = resources;
+	}
+	public void addResources(HashSet<String> resources) {
+		this.resources.addAll(resources);
 	}
 
 }

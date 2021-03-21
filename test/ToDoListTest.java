@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import org.junit.*;
 import org.junit.Test;
@@ -95,5 +97,36 @@ public class ToDoListTest extends TestCase{
 
 		assertNotNull(task.getTaskDuration());
 		assertNotNull(task2.getTaskDuration());
+	}
+	
+	@Test
+	public void testGetResources() {
+		assertNotNull(list);
+		task.setResources(null);
+		assertNull(task.getResources());
+		
+		HashSet<String> resources1 = new HashSet<String>();
+		resources1.add("Wood");
+		resources1.add("Iron");
+		resources1.add("Bronze");
+		task.setResources(resources1);
+		assertNotNull(task.getResources());
+		assertEquals(3,task.getResources().size());
+		
+		HashSet<String> resources2 = new HashSet<String>();
+		resources2.add("Wood");
+		resources2.add("Iron");
+		task.setResources(resources2);
+		assertNotNull(task.getResources());
+		assertEquals(2,task.getResources().size());
+		
+		HashSet<String> resources3 = new HashSet<String>();
+		resources3.add("Leather");
+		resources3.add("Coal");
+		resources3.add("Petrol");
+		task.addResources(resources3);
+		assertNotNull(task.getResources());
+		assertEquals(5,task.getResources().size());
+
 	}
 }
