@@ -6,7 +6,8 @@ public class Task {
 	private String assignee;
 	private int duration;
 	private HashSet<String> resources = new HashSet<String>();
-	
+	private int prioritize = 0;
+	private String classification;
 	
 	public Task(String description) {
 		super();
@@ -22,6 +23,7 @@ public class Task {
 	public String getDescription() {
 		return description;
 	}
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -29,10 +31,10 @@ public class Task {
 	public boolean isComplete() {
 		return isComplete;
 	}
+	
 	public void setComplete(boolean isComplete) {
 		this.isComplete = isComplete;
 	}
-	
 	
 	public void setAssignTask(String assignee) {
 		this.assignee = assignee;
@@ -53,11 +55,28 @@ public class Task {
 	public HashSet<String> getResources() {
 		return resources;
 	}
+	
 	public void setResources(HashSet<String> resources) {
 		this.resources = resources;
 	}
+	
 	public void addResources(HashSet<String> resources) {
 		this.resources.addAll(resources);
 	}
 
+	public void setPrioritization(int prioritize) {
+		this.prioritize = prioritize;
+	}
+	
+	public int getPrioritization() {
+		return prioritize;
+	}
+	
+	public void setClassification(String classification) {
+		this.classification = classification;
+	}
+	
+	public String getClassification() {
+		return classification;
+	}
 }

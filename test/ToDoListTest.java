@@ -15,6 +15,8 @@ public class ToDoListTest extends TestCase{
 	private Task task2;
 	private String item3;
 	private String item4;
+	private String daily, weekly;
+	private int high, medium;
 	
 	public ToDoListTest() {
 		super();
@@ -22,11 +24,17 @@ public class ToDoListTest extends TestCase{
 	@Before
 	 public void setUp() throws Exception{
 	    list = new ToDoList();
-	    item1 = "desc 1";
-	    item2 = "desc 2";
+	    item1 = "Task1";
+	    item2 = "Task2";
 	    item3 = "Ramya";
 	    item4 = "Ramya";	
 	    
+	    high = 2;
+		medium = 1;
+		
+		daily = "Daily";
+		weekly = "Weekly";
+		
 	    task = new Task(item1);
 	    task2 = new Task(item2);
 	    new Task(item3);
@@ -61,7 +69,7 @@ public class ToDoListTest extends TestCase{
 	}
 	
 	@Test
-	public void testgetStatus() {
+	public void testGetStatus() {
 		assertNotNull(list);
 		list.addTask(task);
 		list.addTask(task2);
@@ -75,6 +83,9 @@ public class ToDoListTest extends TestCase{
 		assertNotNull(list);
 		list.addTask(task);	
 		assertNotNull(list.getAllTasks().size());
+		
+		task.setComplete(true);
+		assertTrue(task.isComplete());
 		list.removeTask(item1);
 		
 	}
@@ -144,5 +155,34 @@ public class ToDoListTest extends TestCase{
 		assertNotNull(task.getResources());
 		assertEquals(5,task.getResources().size());
 
+	}
+	
+	@Test
+	public void testGetDescription() {
+		assertNotNull(task);
+		task.setDescription("To get materials for next workshop");
+		assertNotNull(task.getDescription());
+	}
+	
+	@Test
+	public void testGetPrioritization() {
+		assertNotNull(task);
+		assertEquals(0, task.getPrioritization());
+		task.setPrioritization(high);
+	
+		assertEquals(high, task.getPrioritization());
+		assertTrue(medium != task.getPrioritization());
+	}
+	
+	@Test
+	public void testGetClassification() {
+		assertNotNull(task);
+		assertNull(task.getClassification());
+		task.setClassification(daily);
+		assertNotNull(task.getClassification());
+		
+		assertFalse((weekly).equals(task.getClassification()));
+		task.setClassification(null);
+		assertNull(task.getClassification());
 	}
 }
